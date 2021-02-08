@@ -1,0 +1,84 @@
+.weather {
+  border: 10px solid #5c4f5f;
+  padding: 100px 0px;
+  border-radius: 10px;
+  display: block;
+  background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+}
+form {
+  text-align: center;
+}
+
+h1 {
+  color: #353d54;
+  font-family: "Questrial", sans-serif;
+  margin: 40px 0 0 0;
+  font-weight: bolder;
+  font-size: 50px;
+  text-align: center;
+  display: block;
+}
+
+h2 {
+  font-family: "Questrial", sans-serif;
+  color: #353d54;
+  font-size: 30px;
+  text-align: center;
+  display: block;
+}
+
+.current {
+  font-family: "Questrial", sans-serif;
+  text-align: right;
+  font-size: 60px;
+  margin: 0 auto;
+  padding: 0;
+  color: #353d54;
+  display: block;
+}
+
+.details {
+  text-align: right;
+  font-family: "Questrial", sans-serif;
+  color: #353d54;
+  font-size: 20px;
+  display: block;
+  line-height: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li:first-letter {
+  text-transform: capitalize;
+}
+
+.col-2 {
+  padding: 10px;
+  margin: 10px;
+  font-family: "Questrial", sans-serif;
+  text-align: center;
+  line-height: 1;
+  color: #353d54;
+  font-size: 16px;
+  display: block;
+}
+
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.units {
+  font-size: 30px;
+}
+
+.current .active {
+  color: #353d54;
+  cursor: default;
+}
+
+.current .active:hover {
+  text-decoration: none;
+}
