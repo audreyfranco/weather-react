@@ -29,7 +29,7 @@ h2 {
 
 .current {
   font-family: "Questrial", sans-serif;
-  text-align: right;
+  text-align: center;
   font-size: 60px;
   margin: 0 auto;
   padding: 0;
@@ -38,7 +38,7 @@ h2 {
 }
 
 .details {
-  text-align: right;
+  text-align: center;
   font-family: "Questrial", sans-serif;
   color: #353d54;
   font-size: 20px;
