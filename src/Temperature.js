@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import Forecast from "./Forecast";
 import axios from "axios";
 import "./App.css";
 
@@ -47,14 +48,10 @@ if (weatherData.ready) {
           onChange={handleCityChange}
         />
         <input type="submit" value="Search" class="btn btn-outline-dark" />
-        <input
-          type="submit"
-          value="Current Location"
-          class="btn btn-outline-dark"
-          id="current-location-button"
-        />
       </form>
       <WeatherInfo data={weatherData} />
+      <hr />
+      <Forecast  city={weatherData.city} icon={weatherData.iconUrl}/>
     </div>
     </div>
   );

@@ -1,53 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import "./App.css";
+import WeatherForecastPreview from "./WeatherForecastPreview";
 
-export default function Forecast() {
+
+
+export default function Forecast(props) {
+  const [loaded, setloaded] = useState(false);
+  const [forecast, setForecast] = useState(null);
+
+function handleForecastResponse(response) {
+  setForecast(response.data)
+  setloaded(true);
+  ;
+}
+
+if (loaded && props.city === forecast.city.name) {
+  
   return (
-    <div className="Forecast">
+    <div className="WeatherForecast row">
       <hr />
-      <div className="row weather-forecast" id="forecast">
-        <div className="col-2">
-          <h3>15:00</h3>
-          <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" />
-          <div className="weather-forecast-temperautre">
-            <strong>27°</strong>
-            26°
-          </div>
-        </div>
-        <div className="col-2">
-          <h3>18:00</h3>
-          <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" />
-          <div className="weather-forecast-temperautre">
-            <strong>27°</strong>
-            26°
-          </div>
-        </div>
-        <div className="col-2">
-          <h3>21:00</h3>
-          <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" />
-          <div className="weather-forecast-temperautre">
-            <strong>27°</strong>
-            26°
-          </div>
-        </div>
-        <div className="col-2">
-          <h3>00:00</h3>
-          <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" />
-          <div className="weather-forecast-temperautre">
-            <strong>27°</strong>
-            26°
-          </div>
-        </div>
-        <div className="col-2">
-          <h3>03:00</h3>
-          <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" />
-          <div className="weather-forecast-temperautre">
-            <strong>27°</strong>
-            26°
-          </div>
-        </div>
-      </div>
+      
+        <WeatherForecastPreview  data={forecast.list[0]} />
+        <WeatherForecastPreview  data={forecast.list[1]} />
+        <WeatherForecastPreview  data={forecast.list[2]} />
+        <WeatherForecastPreview  data={forecast.list[3]} />
+        <WeatherForecastPreview  data={forecast.list[4]} />
+        <WeatherForecastPreview  data={forecast.list[5]} />
+      
     </div>
   );
+} else {
+  let apiKey = "8402b695ede9a6c63a7ea98262105a24";
+  let url = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(handleForecastResponse);
+  return null;
+}
+
+  
 }
